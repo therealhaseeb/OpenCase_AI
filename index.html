@@ -2,448 +2,662 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="OpenCaseAI is building intelligent customer operations through AI-powered email classification, routing and workflow automation. Founded in Berlin by Haseeb Zahid.">
-<meta name="theme-color" content="#0b1425">
-
-<title>OpenCaseAI | Intelligent Customer Operations</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --bg: #0b1425;
-  --surface: #111e32;
-  --surface2: #15243a;
-  --border: #263750;
-  --text: #edf4ff;
-  --muted: #9baec5;
-  --cyan: #55d6e8;
-  --blue: #648cff;
-  --max: 1100px;
-}
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  line-height: 1.65;
-}
-
-a { color: inherit; text-decoration: none; }
-
-.container {
-  max-width: var(--max);
-  margin: auto;
-  padding: 0 28px;
-}
-
-nav {
-  height: 76px;
-  border-bottom: 1px solid rgba(255,255,255,.07);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 23px;
-  font-weight: 700;
-  letter-spacing: -1px;
-}
-
-.logo span { color: var(--cyan); }
-
-.nav-links {
-  display: flex;
-  gap: 28px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.nav-links a:hover { color: var(--cyan); }
-
-.hero {
-  padding: 85px 0 65px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 500px;
-  height: 400px;
-  right: -130px;
-  top: 0;
-  background: radial-gradient(ellipse, rgba(67,133,235,.17), transparent 70%);
-  pointer-events: none;
-}
-
-.eyebrow {
-  color: var(--cyan);
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-h1, h2, h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  line-height: 1.2;
-  letter-spacing: -1px;
-}
-
-h1 {
-  font-size: clamp(42px, 6vw, 66px);
-  max-width: 780px;
-  margin: 20px 0;
-}
-
-.gradient {
-  background: linear-gradient(100deg, var(--cyan), #8ba9ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.hero-description {
-  color: var(--muted);
-  font-size: 18px;
-  max-width: 680px;
-  margin-bottom: 30px;
-}
-
-.button {
-  display: inline-block;
-  background: var(--cyan);
-  color: #071321;
-  font-weight: 700;
-  padding: 12px 23px;
-  border-radius: 7px;
-  font-size: 14px;
-  transition: .2s;
-}
-
-.button:hover {
-  background: #8be8f3;
-  transform: translateY(-2px);
-}
-
-.secondary {
-  color: var(--text);
-  border: 1px solid var(--border);
-  background: transparent;
-  margin-left: 10px;
-}
-
-.secondary:hover {
-  background: var(--surface);
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 55px;
-}
-
-.stat {
-  padding: 19px;
-  background: rgba(255,255,255,.025);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-}
-
-.stat strong {
-  display: block;
-  font-size: 15px;
-  color: var(--cyan);
-  margin-bottom: 4px;
-}
-
-.stat span {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-section {
-  padding: 55px 0;
-}
-
-.section-heading {
-  max-width: 680px;
-  margin-bottom: 28px;
-}
-
-.section-heading h2 {
-  font-size: 34px;
-  margin: 10px 0;
-}
-
-.section-heading p, .muted {
-  color: var(--muted);
-}
-
-.problem {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-}
-
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 25px;
-  border-radius: 12px;
-}
-
-.card h3 {
-  font-size: 19px;
-  margin: 12px 0 8px;
-}
-
-.card p {
-  color: var(--muted);
-  font-size: 14px;
-  margin-bottom: 0;
-}
-
-.card-icon {
-  color: var(--cyan);
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.workflow {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-
-.step {
-  padding: 20px;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-}
-
-.step-number {
-  color: var(--cyan);
-  font-family: 'Space Grotesk';
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.step h3 { font-size: 17px; }
-
-.step p {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.architecture {
-  padding: 26px;
-  background: linear-gradient(120deg, #12233a, #152b43);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-}
-
-.architecture-flow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin: 25px 0;
-}
-
-.architecture-flow span {
-  background: #203852;
-  border: 1px solid #35516d;
-  border-radius: 7px;
-  padding: 12px 15px;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.architecture-flow b { color: var(--cyan); }
-
-.architecture-note {
-  color: var(--muted);
-  font-size: 13px;
-  text-align: center;
-}
-
-.technology {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.tech {
-  padding: 9px 15px;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  font-size: 13px;
-  color: #c7d8ee;
-}
-
-.founder {
-  display: grid;
-  grid-template-columns: 190px 1fr;
-  gap: 30px;
-  align-items: start;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 30px;
-  border-radius: 14px;
-}
-
-.avatar {
-  width: 150px;
-  height: 150px;
-  border-radius: 15px;
-  background: linear-gradient(140deg, #1c4563, #263d71);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Space Grotesk';
-  font-size: 43px;
-  font-weight: 700;
-  color: var(--cyan);
-}
-
-.founder h3 {
-  font-size: 25px;
-  margin: 0;
-}
-
-.founder-role {
-  color: var(--cyan);
-  font-size: 14px;
-  margin-top: 5px;
-}
-
-.founder p {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.experience {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 16px;
-}
-
-.experience span {
-  background: #1b3048;
-  color: #c7d8ee;
-  border-radius: 5px;
-  padding: 6px 10px;
-  font-size: 12px;
-}
-
-.roadmap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.roadmap-item {
-  border-left: 2px solid var(--cyan);
-  padding: 5px 0 5px 18px;
-}
-
-.roadmap-item h3 { font-size: 17px; }
-
-.roadmap-item p {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.cta {
-  text-align: center;
-  background: linear-gradient(120deg, #142b43, #14213b);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 45px 25px;
-  margin: 35px 0;
-}
-
-.cta h2 { font-size: 32px; }
-
-.cta p {
-  color: var(--muted);
-  max-width: 580px;
-  margin: 15px auto 24px;
-}
-
-footer {
-  padding: 25px 0;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-@media(max-width: 750px) {
-  .nav-links { gap: 12px; font-size: 12px; }
-  .stats, .grid { grid-template-columns: 1fr 1fr; }
-  .workflow { grid-template-columns: 1fr 1fr; }
-  .founder { grid-template-columns: 1fr; }
-  .problem { grid-template-columns: 1fr; }
-}
-
-@media(max-width: 480px) {
-  .container { padding: 0 18px; }
-  .nav-links { display: none; }
-  .stats, .grid, .workflow, .roadmap { grid-template-columns: 1fr; }
-  .hero { padding-top: 55px; }
-  .secondary { margin: 10px 0 0; }
-  .section-heading h2 { font-size: 29px; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1425">
+  <meta name="description" content="OpenCaseAI is building AI-powered customer operations through intelligent email classification, routing and workflow automation. Founded in Berlin by Haseeb Zahid.">
+  <meta name="author" content="Haseeb Zahid">
+  <meta name="robots" content="index, follow">
+
+  <title>OpenCaseAI | Intelligent Customer Operations</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1425;
+      --surface: #111e32;
+      --surface2: #15243a;
+      --border: #263750;
+      --text: #edf4ff;
+      --muted: #9baec5;
+      --cyan: #55d6e8;
+      --blue: #648cff;
+      --max: 1100px;
+      --header-height: 76px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header-height) + 20px);
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.65;
+    }
+
+    body, button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 4px;
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: auto;
+      padding: 0 28px;
+    }
+
+    /* Sticky navigation */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--header-height);
+      background: rgba(11, 20, 37, .84);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: background .25s, box-shadow .25s;
+    }
+
+    .site-header.scrolled {
+      background: rgba(8, 16, 30, .96);
+      box-shadow: 0 8px 30px rgba(0,0,0,.22);
+      border-bottom-color: var(--border);
+    }
+
+    .nav-container {
+      max-width: var(--max);
+      height: 100%;
+      margin: auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 23px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: color .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--cyan);
+    }
+
+    .nav-cta {
+      color: #071321 !important;
+      background: var(--cyan);
+      padding: 9px 16px;
+      border-radius: 6px;
+    }
+
+    .nav-cta:hover {
+      background: #8be8f3;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 7px;
+      padding: 8px 12px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 85px 0 65px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 400px;
+      right: -130px;
+      top: 0;
+      background: radial-gradient(ellipse, rgba(67,133,235,.17), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 66px);
+      max-width: 780px;
+      margin: 20px 0;
+    }
+
+    .gradient {
+      background: linear-gradient(100deg, var(--cyan), #8ba9ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 680px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--cyan);
+      color: #071321;
+      font-weight: 700;
+      padding: 12px 23px;
+      border-radius: 7px;
+      font-size: 14px;
+      transition: .2s;
+    }
+
+    .button:hover {
+      background: #8be8f3;
+      transform: translateY(-2px);
+    }
+
+    .secondary {
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: transparent;
+      margin-left: 10px;
+    }
+
+    .secondary:hover {
+      background: var(--surface);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 55px;
+    }
+
+    .stat {
+      padding: 19px;
+      background: rgba(255,255,255,.025);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 15px;
+      color: var(--cyan);
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Sections */
+
+    section {
+      padding: 55px 0;
+      scroll-margin-top: calc(var(--header-height) + 15px);
+    }
+
+    .section-heading {
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      font-size: 34px;
+      margin: 10px 0;
+    }
+
+    .section-heading p,
+    .muted {
+      color: var(--muted);
+    }
+
+    .problem {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 25px;
+      border-radius: 12px;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .card:hover {
+      border-color: #42617f;
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      font-size: 19px;
+      margin: 12px 0 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    .card-icon {
+      color: var(--cyan);
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .step {
+      padding: 20px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .step-number {
+      color: var(--cyan);
+      font-family: 'Space Grotesk';
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .step h3 {
+      font-size: 17px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Architecture */
+
+    .architecture {
+      padding: 26px;
+      background: linear-gradient(120deg, #12233a, #152b43);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .architecture-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 25px 0;
+    }
+
+    .architecture-flow span {
+      background: #203852;
+      border: 1px solid #35516d;
+      border-radius: 7px;
+      padding: 12px 15px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .architecture-flow b {
+      color: var(--cyan);
+    }
+
+    .architecture-note {
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .technology {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tech {
+      padding: 9px 15px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      font-size: 13px;
+      color: #c7d8ee;
+    }
+
+    /* Founder */
+
+    .founder {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 30px;
+      align-items: start;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: 14px;
+    }
+
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 15px;
+      background: linear-gradient(140deg, #1c4563, #263d71);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk';
+      font-size: 43px;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+
+    .founder h3 {
+      font-size: 25px;
+      margin: 0;
+    }
+
+    .founder-role {
+      color: var(--cyan);
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .founder p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .experience {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .experience span {
+      background: #1b3048;
+      color: #c7d8ee;
+      border-radius: 5px;
+      padding: 6px 10px;
+      font-size: 12px;
+    }
+
+    /* Roadmap */
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .roadmap-item {
+      border-left: 2px solid var(--cyan);
+      padding: 5px 0 5px 18px;
+    }
+
+    .roadmap-item h3 {
+      font-size: 17px;
+    }
+
+    .roadmap-item p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* CTA and footer */
+
+    .cta {
+      text-align: center;
+      background: linear-gradient(120deg, #142b43, #14213b);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 45px 25px;
+      margin: 35px 0;
+    }
+
+    .cta h2 {
+      font-size: 32px;
+    }
+
+    .cta p {
+      color: var(--muted);
+      max-width: 580px;
+      margin: 15px auto 24px;
+    }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive navigation */
+
+    @media(max-width: 750px) {
+      .nav-container {
+        padding: 0 20px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        background: #101d31;
+        border-bottom: 1px solid var(--border);
+        padding: 16px 24px 22px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 12px 0;
+      }
+
+      .nav-cta {
+        text-align: center;
+        margin-top: 8px;
+      }
+
+      .stats,
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .workflow {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .founder {
+        grid-template-columns: 1fr;
+      }
+
+      .problem {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .container {
+        padding: 0 18px;
+      }
+
+      .nav-container {
+        padding: 0 18px;
+      }
+
+      .stats,
+      .grid,
+      .workflow,
+      .roadmap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+
+      .secondary {
+        margin: 10px 0 0;
+      }
+
+      .section-heading h2 {
+        font-size: 29px;
+      }
+
+      .architecture {
+        padding: 18px;
+      }
+
+      .architecture-flow {
+        flex-direction: column;
+      }
+
+      .architecture-flow b {
+        transform: rotate(90deg);
+      }
+    }
+
+    @media(prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
+<header class="site-header" id="siteHeader">
+  <nav class="nav-container" aria-label="Main navigation">
+    <a href="#" class="logo" aria-label="OpenCaseAI home">
+      OpenCase<span>AI</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="navLinks">
+      ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#product">Product</a>
+      <a href="#technology">Technology</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+</header>
+
 <div class="container">
 
-<nav>
-  <a href="#" class="logo">OpenCase<span>AI</span></a>
-  <div class="nav-links">
-    <a href="#product">Product</a>
-    <a href="#technology">Technology</a>
-    <a href="#founder">Founder</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+<main>
 
-<header class="hero">
+<section class="hero">
   <div class="eyebrow">Building from Berlin, Germany</div>
 
   <h1>
@@ -474,7 +688,7 @@ footer {
       <span>Independently developed in Berlin</span>
     </div>
   </div>
-</header>
+</section>
 
 <section id="product">
   <div class="section-heading">
@@ -498,6 +712,7 @@ footer {
         overhead and slower customer response times.
       </p>
     </div>
+
     <div class="card">
       <div class="card-icon">02</div>
       <h3>The approach</h3>
@@ -524,55 +739,37 @@ footer {
     <div class="card">
       <div class="card-icon">01</div>
       <h3>Intent classification</h3>
-      <p>
-        Identify the purpose of incoming customer emails,
-        including order enquiries, returns and general queries.
-      </p>
+      <p>Identify the purpose of incoming customer emails, including order enquiries, returns and general queries.</p>
     </div>
 
     <div class="card">
       <div class="card-icon">02</div>
       <h3>Intelligent routing</h3>
-      <p>
-        Translate classification results into structured
-        routing decisions and appropriate processing paths.
-      </p>
+      <p>Translate classification results into structured routing decisions and appropriate processing paths.</p>
     </div>
 
     <div class="card">
       <div class="card-icon">03</div>
       <h3>Workflow orchestration</h3>
-      <p>
-        Coordinate asynchronous processing, retries and
-        reliable execution of email workflows.
-      </p>
+      <p>Coordinate asynchronous processing, retries and reliable execution of email workflows.</p>
     </div>
 
     <div class="card">
       <div class="card-icon">04</div>
       <h3>Multilingual AI</h3>
-      <p>
-        Explore multilingual models for customer communication
-        across different European markets.
-      </p>
+      <p>Explore multilingual models for customer communication across different European markets.</p>
     </div>
 
     <div class="card">
       <div class="card-icon">05</div>
       <h3>Human oversight</h3>
-      <p>
-        Build towards confidence-aware processing and
-        escalation of uncertain or complex requests.
-      </p>
+      <p>Build towards confidence-aware processing and escalation of uncertain or complex requests.</p>
     </div>
 
     <div class="card">
       <div class="card-icon">06</div>
       <h3>Operational reliability</h3>
-      <p>
-        Design for deduplication, traceability, tenant
-        isolation and observable processing pipelines.
-      </p>
+      <p>Design for deduplication, traceability, tenant isolation and observable processing pipelines.</p>
     </div>
   </div>
 </section>
@@ -594,16 +791,19 @@ footer {
       <h3>Ingestion</h3>
       <p>Receive incoming messages through email integrations.</p>
     </div>
+
     <div class="step">
       <div class="step-number">STEP 02</div>
       <h3>Understanding</h3>
       <p>Extract relevant information and classify customer intent.</p>
     </div>
+
     <div class="step">
       <div class="step-number">STEP 03</div>
       <h3>Decision</h3>
       <p>Determine the appropriate category and routing destination.</p>
     </div>
+
     <div class="step">
       <div class="step-number">STEP 04</div>
       <h3>Processing</h3>
@@ -649,7 +849,6 @@ footer {
     <span class="tech">LLMs</span>
     <span class="tech">Hugging Face</span>
     <span class="tech">Docker</span>
-    <span class="tech">Google Cloud</span>
     <span class="tech">Google Workspace API</span>
   </div>
 </section>
@@ -661,7 +860,7 @@ footer {
   </div>
 
   <div class="founder">
-    <div class="avatar">HZ</div>
+    <div class="avatar" aria-label="Haseeb Zahid initials">HZ</div>
 
     <div>
       <h3>Haseeb Zahid</h3>
@@ -684,7 +883,7 @@ footer {
       <p>
         He has worked with production LLM serving, open-weight
         models, GPU inference, retrieval pipelines and
-        distributed cloud architectures. OpenCaseAI is his
+        distributed application architectures. OpenCaseAI is his
         independent initiative to bring practical AI automation
         to European businesses.
       </p>
@@ -718,34 +917,22 @@ footer {
   <div class="roadmap">
     <div class="roadmap-item">
       <h3>01. Core email automation</h3>
-      <p>
-        Reliable email ingestion, classification, routing,
-        deduplication and asynchronous processing.
-      </p>
+      <p>Reliable email ingestion, classification, routing, deduplication and asynchronous processing.</p>
     </div>
 
     <div class="roadmap-item">
       <h3>02. Intelligent case management</h3>
-      <p>
-        Structured customer cases, contextual understanding
-        and more advanced workflow orchestration.
-      </p>
+      <p>Structured customer cases, contextual understanding and more advanced workflow orchestration.</p>
     </div>
 
     <div class="roadmap-item">
       <h3>03. AI-assisted resolution</h3>
-      <p>
-        Context-aware response assistance, knowledge retrieval
-        and human-in-the-loop decision-making.
-      </p>
+      <p>Context-aware response assistance, knowledge retrieval and human-in-the-loop decision-making.</p>
     </div>
 
     <div class="roadmap-item">
       <h3>04. Multichannel operations</h3>
-      <p>
-        Explore extending intelligent workflows across
-        additional customer communication channels.
-      </p>
+      <p>Explore extending intelligent workflows across additional customer communication channels.</p>
     </div>
   </div>
 </section>
@@ -760,11 +947,14 @@ footer {
       providers, technology partners and European businesses
       interested in exploring practical AI automation.
     </p>
+
     <a class="button" href="mailto:zahidhaseeb46@gmail.com">
       Get in touch
     </a>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="footer-content">
@@ -774,5 +964,74 @@ footer {
 </footer>
 
 </div>
+
+<script>
+  // Scroll-aware sticky header
+  const header = document.getElementById('siteHeader');
+
+  function updateHeader() {
+    header.classList.toggle('scrolled', window.scrollY > 15);
+  }
+
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+
+  // Mobile navigation
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Open navigation menu');
+    menuToggle.textContent = '☰';
+  }
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute(
+      'aria-label',
+      isOpen ? 'Close navigation menu' : 'Open navigation menu'
+    );
+    menuToggle.textContent = isOpen ? '✕' : '☰';
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeMenu();
+  });
+
+  // Highlight active navigation section
+  const sections = document.querySelectorAll('main section[id]');
+  const navItems = navLinks.querySelectorAll('a[href^="#"]');
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navItems.forEach(link => {
+            const active = link.getAttribute('href') === '#' + entry.target.id;
+
+            if (active) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, {
+      rootMargin: '-20% 0px -65% 0px'
+    });
+
+    sections.forEach(section => observer.observe(section));
+  }
+</script>
+
 </body>
 </html>
