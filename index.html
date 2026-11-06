@@ -2,118 +2,777 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OpenCaseAI | Intelligent Customer Operations</title>
-  <meta name="description" content="AI-powered email automation and customer support workflows for European businesses.">
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: #0b1120;
-      color: #e5eaf3;
-      font-family: Arial, sans-serif;
-      line-height: 1.7;
-    }
-    header, main, footer {
-      max-width: 1000px;
-      margin: auto;
-      padding: 30px 24px;
-    }
-    header { padding-top: 45px; }
-    .brand { font-size: 25px; font-weight: bold; color: #67d5f5; }
-    .hero { padding: 100px 24px 80px; max-width: 1000px; margin: auto; }
-    h1 { font-size: clamp(38px, 6vw, 65px); line-height: 1.15; }
-    h2 { margin-top: 55px; }
-    .accent { color: #67d5f5; }
-    .muted { color: #a6b3c7; }
-    .card {
-      background: #141e30;
-      border: 1px solid #26364d;
-      border-radius: 12px;
-      padding: 24px;
-      margin: 16px 0;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-    a { color: #67d5f5; }
-    .button {
-      display: inline-block;
-      padding: 12px 22px;
-      background: #67d5f5;
-      color: #0b1120;
-      text-decoration: none;
-      border-radius: 7px;
-      font-weight: bold;
-      margin-top: 15px;
-    }
-    footer { border-top: 1px solid #26364d; margin-top: 60px; }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="brand">OpenCaseAI</div>
-    <div class="muted">Intelligent Customer Operations</div>
-  </header>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="OpenCaseAI is building intelligent customer operations through AI-powered email classification, routing and workflow automation. Founded in Berlin by Haseeb Zahid.">
+<meta name="theme-color" content="#0b1425">
 
-  <section class="hero">
-    <p class="accent">AI-POWERED CUSTOMER SUPPORT AUTOMATION</p>
-    <h1>Turn customer emails into <span class="accent">intelligent workflows.</span></h1>
-    <p class="muted">
-      OpenCaseAI is an early-stage AI platform being developed
-      to automate customer support operations for European
-      e-commerce businesses.
+<title>OpenCaseAI | Intelligent Customer Operations</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0b1425;
+  --surface: #111e32;
+  --surface2: #15243a;
+  --border: #263750;
+  --text: #edf4ff;
+  --muted: #9baec5;
+  --cyan: #55d6e8;
+  --blue: #648cff;
+  --max: 1100px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.65;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  max-width: var(--max);
+  margin: auto;
+  padding: 0 28px;
+}
+
+nav {
+  height: 76px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.logo span { color: var(--cyan); }
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.nav-links a:hover { color: var(--cyan); }
+
+.hero {
+  padding: 85px 0 65px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 400px;
+  right: -130px;
+  top: 0;
+  background: radial-gradient(ellipse, rgba(67,133,235,.17), transparent 70%);
+  pointer-events: none;
+}
+
+.eyebrow {
+  color: var(--cyan);
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+h1 {
+  font-size: clamp(42px, 6vw, 66px);
+  max-width: 780px;
+  margin: 20px 0;
+}
+
+.gradient {
+  background: linear-gradient(100deg, var(--cyan), #8ba9ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-description {
+  color: var(--muted);
+  font-size: 18px;
+  max-width: 680px;
+  margin-bottom: 30px;
+}
+
+.button {
+  display: inline-block;
+  background: var(--cyan);
+  color: #071321;
+  font-weight: 700;
+  padding: 12px 23px;
+  border-radius: 7px;
+  font-size: 14px;
+  transition: .2s;
+}
+
+.button:hover {
+  background: #8be8f3;
+  transform: translateY(-2px);
+}
+
+.secondary {
+  color: var(--text);
+  border: 1px solid var(--border);
+  background: transparent;
+  margin-left: 10px;
+}
+
+.secondary:hover {
+  background: var(--surface);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 55px;
+}
+
+.stat {
+  padding: 19px;
+  background: rgba(255,255,255,.025);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.stat strong {
+  display: block;
+  font-size: 15px;
+  color: var(--cyan);
+  margin-bottom: 4px;
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+section {
+  padding: 55px 0;
+}
+
+.section-heading {
+  max-width: 680px;
+  margin-bottom: 28px;
+}
+
+.section-heading h2 {
+  font-size: 34px;
+  margin: 10px 0;
+}
+
+.section-heading p, .muted {
+  color: var(--muted);
+}
+
+.problem {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.card h3 {
+  font-size: 19px;
+  margin: 12px 0 8px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.card-icon {
+  color: var(--cyan);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.workflow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.step {
+  padding: 20px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.step-number {
+  color: var(--cyan);
+  font-family: 'Space Grotesk';
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.step h3 { font-size: 17px; }
+
+.step p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.architecture {
+  padding: 26px;
+  background: linear-gradient(120deg, #12233a, #152b43);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.architecture-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 25px 0;
+}
+
+.architecture-flow span {
+  background: #203852;
+  border: 1px solid #35516d;
+  border-radius: 7px;
+  padding: 12px 15px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.architecture-flow b { color: var(--cyan); }
+
+.architecture-note {
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+.technology {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech {
+  padding: 9px 15px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-size: 13px;
+  color: #c7d8ee;
+}
+
+.founder {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 30px;
+  align-items: start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 30px;
+  border-radius: 14px;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+  background: linear-gradient(140deg, #1c4563, #263d71);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk';
+  font-size: 43px;
+  font-weight: 700;
+  color: var(--cyan);
+}
+
+.founder h3 {
+  font-size: 25px;
+  margin: 0;
+}
+
+.founder-role {
+  color: var(--cyan);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.founder p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.experience {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.experience span {
+  background: #1b3048;
+  color: #c7d8ee;
+  border-radius: 5px;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.roadmap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.roadmap-item {
+  border-left: 2px solid var(--cyan);
+  padding: 5px 0 5px 18px;
+}
+
+.roadmap-item h3 { font-size: 17px; }
+
+.roadmap-item p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.cta {
+  text-align: center;
+  background: linear-gradient(120deg, #142b43, #14213b);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 45px 25px;
+  margin: 35px 0;
+}
+
+.cta h2 { font-size: 32px; }
+
+.cta p {
+  color: var(--muted);
+  max-width: 580px;
+  margin: 15px auto 24px;
+}
+
+footer {
+  padding: 25px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+@media(max-width: 750px) {
+  .nav-links { gap: 12px; font-size: 12px; }
+  .stats, .grid { grid-template-columns: 1fr 1fr; }
+  .workflow { grid-template-columns: 1fr 1fr; }
+  .founder { grid-template-columns: 1fr; }
+  .problem { grid-template-columns: 1fr; }
+}
+
+@media(max-width: 480px) {
+  .container { padding: 0 18px; }
+  .nav-links { display: none; }
+  .stats, .grid, .workflow, .roadmap { grid-template-columns: 1fr; }
+  .hero { padding-top: 55px; }
+  .secondary { margin: 10px 0 0; }
+  .section-heading h2 { font-size: 29px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<nav>
+  <a href="#" class="logo">OpenCase<span>AI</span></a>
+  <div class="nav-links">
+    <a href="#product">Product</a>
+    <a href="#technology">Technology</a>
+    <a href="#founder">Founder</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Building from Berlin, Germany</div>
+
+  <h1>
+    Customer operations,<br>
+    made <span class="gradient">intelligent.</span>
+  </h1>
+
+  <p class="hero-description">
+    OpenCaseAI is building an AI-powered customer operations
+    platform that transforms incoming customer emails into
+    structured, intelligent and actionable workflows.
+  </p>
+
+  <a class="button" href="#product">Explore the product</a>
+  <a class="button secondary" href="mailto:zahidhaseeb46@gmail.com">Get in touch</a>
+
+  <div class="stats">
+    <div class="stat">
+      <strong>AI-native</strong>
+      <span>Intelligent email processing</span>
+    </div>
+    <div class="stat">
+      <strong>Multilingual</strong>
+      <span>Designed for European businesses</span>
+    </div>
+    <div class="stat">
+      <strong>Early-stage MVP</strong>
+      <span>Independently developed in Berlin</span>
+    </div>
+  </div>
+</header>
+
+<section id="product">
+  <div class="section-heading">
+    <div class="eyebrow">The opportunity</div>
+    <h2>Customer support is still too manual.</h2>
+    <p>
+      E-commerce businesses receive thousands of messages
+      involving orders, returns, delivery issues and general
+      enquiries. Teams spend valuable time reading, classifying,
+      prioritising and forwarding these requests.
+    </p>
+  </div>
+
+  <div class="problem">
+    <div class="card">
+      <div class="card-icon">01</div>
+      <h3>The challenge</h3>
+      <p>
+        High email volumes, repetitive requests, inconsistent
+        categorisation and manual routing create operational
+        overhead and slower customer response times.
+      </p>
+    </div>
+    <div class="card">
+      <div class="card-icon">02</div>
+      <h3>The approach</h3>
+      <p>
+        Apply AI to understand incoming messages, identify
+        customer intent, assign structured categories and
+        route requests into appropriate workflows.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-heading">
+    <div class="eyebrow">Product capabilities</div>
+    <h2>From unstructured emails to structured operations.</h2>
+    <p>
+      OpenCaseAI is being developed around a modular,
+      asynchronous architecture.
+    </p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">01</div>
+      <h3>Intent classification</h3>
+      <p>
+        Identify the purpose of incoming customer emails,
+        including order enquiries, returns and general queries.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">02</div>
+      <h3>Intelligent routing</h3>
+      <p>
+        Translate classification results into structured
+        routing decisions and appropriate processing paths.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">03</div>
+      <h3>Workflow orchestration</h3>
+      <p>
+        Coordinate asynchronous processing, retries and
+        reliable execution of email workflows.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">04</div>
+      <h3>Multilingual AI</h3>
+      <p>
+        Explore multilingual models for customer communication
+        across different European markets.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">05</div>
+      <h3>Human oversight</h3>
+      <p>
+        Build towards confidence-aware processing and
+        escalation of uncertain or complex requests.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">06</div>
+      <h3>Operational reliability</h3>
+      <p>
+        Design for deduplication, traceability, tenant
+        isolation and observable processing pipelines.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-heading">
+    <div class="eyebrow">How it works</div>
+    <h2>A modular AI processing pipeline.</h2>
+    <p>
+      The initial product focuses on email ingestion,
+      classification and routing, with room to extend
+      into more advanced customer operations.
+    </p>
+  </div>
+
+  <div class="workflow">
+    <div class="step">
+      <div class="step-number">STEP 01</div>
+      <h3>Ingestion</h3>
+      <p>Receive incoming messages through email integrations.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">STEP 02</div>
+      <h3>Understanding</h3>
+      <p>Extract relevant information and classify customer intent.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">STEP 03</div>
+      <h3>Decision</h3>
+      <p>Determine the appropriate category and routing destination.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">STEP 04</div>
+      <h3>Processing</h3>
+      <p>Execute the corresponding workflow with reliable processing.</p>
+    </div>
+  </div>
+</section>
+
+<section id="technology">
+  <div class="section-heading">
+    <div class="eyebrow">Engineering foundation</div>
+    <h2>Built for practical AI deployment.</h2>
+    <p>
+      The architecture prioritises modularity, reliability,
+      observability and cost-efficient AI inference.
+    </p>
+  </div>
+
+  <div class="architecture">
+    <div class="architecture-flow">
+      <span>Email Sources</span>
+      <b>→</b>
+      <span>FastAPI</span>
+      <b>→</b>
+      <span>AI Classification</span>
+      <b>→</b>
+      <span>Workflow Routing</span>
+    </div>
+
+    <p class="architecture-note">
+      PostgreSQL-backed processing, asynchronous workers,
+      retry handling and tenant-aware application architecture.
+    </p>
+  </div>
+
+  <h3 style="margin-top:30px">Technology stack</h3>
+
+  <div class="technology">
+    <span class="tech">Python</span>
+    <span class="tech">FastAPI</span>
+    <span class="tech">PostgreSQL</span>
+    <span class="tech">LangGraph</span>
+    <span class="tech">LLMs</span>
+    <span class="tech">Hugging Face</span>
+    <span class="tech">Docker</span>
+    <span class="tech">Google Cloud</span>
+    <span class="tech">Google Workspace API</span>
+  </div>
+</section>
+
+<section id="founder">
+  <div class="section-heading">
+    <div class="eyebrow">The founder</div>
+    <h2>Built by an engineer working at the intersection of AI and business.</h2>
+  </div>
+
+  <div class="founder">
+    <div class="avatar">HZ</div>
+
+    <div>
+      <h3>Haseeb Zahid</h3>
+      <div class="founder-role">Founder & AI Engineer · Berlin, Germany</div>
+
+      <p>
+        Haseeb is a Senior AI Engineer and Data Scientist with
+        over eight years of experience building machine learning
+        systems, AI applications and data-driven products.
+      </p>
+
+      <p>
+        His professional experience includes developing
+        enterprise AI solutions for WPP and Electronic Arts,
+        including agentic workflows, retrieval-augmented
+        generation systems, LLM applications and cloud-native
+        machine learning infrastructure.
+      </p>
+
+      <p>
+        He has worked with production LLM serving, open-weight
+        models, GPU inference, retrieval pipelines and
+        distributed cloud architectures. OpenCaseAI is his
+        independent initiative to bring practical AI automation
+        to European businesses.
+      </p>
+
+      <div class="experience">
+        <span>8+ years in AI & ML</span>
+        <span>Agentic AI</span>
+        <span>LLM Engineering</span>
+        <span>RAG Systems</span>
+        <span>Cloud Architecture</span>
+        <span>Python</span>
+      </div>
+
+      <p>
+        <a href="mailto:zahidhaseeb46@gmail.com">Contact Haseeb</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-heading">
+    <div class="eyebrow">Product direction</div>
+    <h2>Building towards autonomous customer operations.</h2>
+    <p>
+      The longer-term vision extends beyond email classification
+      into intelligent, end-to-end customer support workflows.
+    </p>
+  </div>
+
+  <div class="roadmap">
+    <div class="roadmap-item">
+      <h3>01. Core email automation</h3>
+      <p>
+        Reliable email ingestion, classification, routing,
+        deduplication and asynchronous processing.
+      </p>
+    </div>
+
+    <div class="roadmap-item">
+      <h3>02. Intelligent case management</h3>
+      <p>
+        Structured customer cases, contextual understanding
+        and more advanced workflow orchestration.
+      </p>
+    </div>
+
+    <div class="roadmap-item">
+      <h3>03. AI-assisted resolution</h3>
+      <p>
+        Context-aware response assistance, knowledge retrieval
+        and human-in-the-loop decision-making.
+      </p>
+    </div>
+
+    <div class="roadmap-item">
+      <h3>04. Multichannel operations</h3>
+      <p>
+        Explore extending intelligent workflows across
+        additional customer communication channels.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="cta">
+    <div class="eyebrow">Collaboration & partnerships</div>
+    <h2>Building the next generation of customer operations.</h2>
+    <p>
+      OpenCaseAI is an early-stage project based in Berlin.
+      We are interested in connecting with AI infrastructure
+      providers, technology partners and European businesses
+      interested in exploring practical AI automation.
     </p>
     <a class="button" href="mailto:zahidhaseeb46@gmail.com">
-      Contact the Founder
+      Get in touch
     </a>
-  </section>
+  </div>
+</section>
 
-  <main>
-    <h2>The problem</h2>
-    <p class="muted">
-      E-commerce businesses handle large volumes of customer
-      enquiries involving orders, returns and general support.
-      Manually processing and routing these requests creates
-      operational overhead and delays.
-    </p>
+<footer>
+  <div class="footer-content">
+    <span>© 2026 OpenCaseAI. Independently developed in Berlin.</span>
+    <span>Founded by Haseeb Zahid</span>
+  </div>
+</footer>
 
-    <h2>Our approach</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>AI Classification</h3>
-        <p class="muted">Identify customer intent and categorise incoming emails.</p>
-      </div>
-      <div class="card">
-        <h3>Intelligent Routing</h3>
-        <p class="muted">Direct enquiries into appropriate workflows.</p>
-      </div>
-      <div class="card">
-        <h3>Workflow Automation</h3>
-        <p class="muted">Build asynchronous, reliable customer-support processes.</p>
-      </div>
-    </div>
-
-    <h2>Technology</h2>
-    <div class="card">
-      Python · FastAPI · PostgreSQL · LangGraph · LLMs
-    </div>
-
-    <h2>About</h2>
-    <p class="muted">
-      OpenCaseAI is an independently developed early-stage
-      startup project founded by Haseeb Zahid, based in Berlin, Germany.
-    </p>
-    <p class="muted">
-      Currently in the prototype development stage.
-    </p>
-  </main>
-
-  <footer>
-    <p class="muted">OpenCaseAI · Berlin, Germany · 2026</p>
-  </footer>
+</div>
 </body>
 </html>
